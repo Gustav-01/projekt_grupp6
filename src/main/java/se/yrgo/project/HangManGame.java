@@ -45,11 +45,13 @@ public class HangManGame {
             // Spara randomordet i en variabel
             List<Character> word = getWordAsList();
 
-            // Skapa en lista med underscore baserat på längden av ord
+            // Skapa en lista med underscore baserat på längden av ord oavsett ord
             char[] maskedWord = new char[word.size()];
             for (int i = 0; i < maskedWord.length; i++) {
                 maskedWord[i] = '_';
             }
+
+            // skriv ut array med String.valueOf()
             System.out.print("Your word is: " + String.valueOf(maskedWord));
 
             while (true) {
@@ -58,30 +60,38 @@ public class HangManGame {
                     System.out.println("\n OUCH! The man has been hanged, you lost!");
                     break;
                 }
+                // (new String) skapar en sträng av Char array, breaka loopen om ordet är gissat!
+                if (!new String(maskedWord).contains("_")) {
+                    System.out.println("\nCongratz! You got the word: " + String.valueOf(maskedWord));
+                    break;
+                }
 
                 System.out.print("\nLet's try, take a guess: ");
-                char guess = input.next().toLowerCase().charAt(0);
+                char letter = input.next().toLowerCase().charAt(0);
 
-                boolean found = false;
+                boolean isFound = false;
+
+                // jämför underscore array med bokstav och ersätt underscore med bokstav.
                 for (int i = 0; i < word.size(); i++) {
-                    if (Character.toLowerCase(word.get(i)) == guess) {
-                        maskedWord[i] = word.get(i); // ersätt _ med bokstaven
-                        found = true;
+                    if (Character.toLowerCase(word.get(i)) == letter) {
+                        maskedWord[i] = word.get(i);
+                        isFound = true;
                     }
                 }
 
-                if (found) {
-                    System.out.println("Korrekt!");
-                    player.correctGuess();
+                if (isFound) {
+                    System.out.println("\nThat's correct!");
+                    System.out.println("Guessed letters: " + player.getGuesses());
                 } else {
                     System.out.println();
                     player.wrongGuess();
                     System.out.println("Wrong! Guess again. " + player.getLives() + " lives remaining.");
+                    player.guess(letter);
+                    System.out.println("Guessed letters: " + player.getGuesses());
                 }
 
-                System.out.println("Your word is: " + String.valueOf(maskedWord));
+                System.out.println("\nYour word is: " + String.valueOf(maskedWord));
             }
-
         }
     }
 }

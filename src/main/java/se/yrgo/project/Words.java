@@ -6,12 +6,10 @@ import java.util.Random;
 
 public class Words {
     private final List<String> words;
-    private final List<Character> wordAsLetters;
     private String randomWord;
 
     public Words(List<String> words) {
         this.words = words;
-        this.wordAsLetters = new ArrayList<>();
         this.randomWord = null;
     }
 
@@ -23,10 +21,10 @@ public class Words {
     }
 
     public List<Character> wordToLetters(String word) {
-
-        for (int i = 0; i < word.length(); i++) {
-            wordAsLetters.add(word.charAt(i));
+        List<Character> letters = new ArrayList<>();
+        for (char c : word.toCharArray()) {
+            letters.add(c);
         }
-        return wordAsLetters;
+        return letters;
     }
 }
