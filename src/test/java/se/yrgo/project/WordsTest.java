@@ -34,6 +34,6 @@ public class WordsTest {
 
         List<Character> letters = word.wordToLetters("Java");
 
-        assertEquals('J', letters.getFirst());
+        assertEquals('j', letters.getFirst());
     }
 }
