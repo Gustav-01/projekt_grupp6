@@ -1,15 +1,18 @@
 package se.yrgo.project;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Words {
+
     private final List<String> words;
+    private final List<Character> wordAsLetters;
     private String randomWord;
 
     public Words(List<String> words) {
         this.words = words;
+        this.wordAsLetters = new ArrayList<>();
         this.randomWord = null;
     }
 
@@ -21,10 +24,10 @@ public class Words {
     }
 
     public List<Character> wordToLetters(String word) {
-        List<Character> letters = new ArrayList<>();
-        for (char c : word.toCharArray()) {
-            letters.add(c);
+        wordAsLetters.clear();
+        for (int i = 0; i < word.length(); i++) {
+            wordAsLetters.add(Character.toLowerCase(word.charAt(i)));
         }
-        return letters;
+        return wordAsLetters;
     }
 }

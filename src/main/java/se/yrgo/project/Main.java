@@ -8,6 +8,5 @@ public class Main {
         game.welcome();
 
         game.startGame();
-
     }
 }
