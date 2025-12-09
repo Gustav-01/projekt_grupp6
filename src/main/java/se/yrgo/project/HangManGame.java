@@ -123,6 +123,7 @@ public class HangManGame {
 
             if (isWordSolved(wordList, guessedLetters)) {
                 System.out.println("YOU WON!");
+                System.out.println("The word was " + wordList);
             } else {
                 System.out.println("\nGAME OVER! The man has been hanged...\nThe word was: " + wordList);
                 System.out.println();
