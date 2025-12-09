@@ -68,7 +68,7 @@ public class HangManGame {
      * @return the chosen word as a list of characters.
      */
     public List<Character> getWordList() {
-        List<String> wordList = List.of("Java");
+        List<String> wordList = List.of("Java", "Python", "Jenkins", "Groovy", "Maven");
         Words word = new Words(wordList);
         String chosenWord = word.getRandomWord();
         return word.wordToLetters(chosenWord);
@@ -117,14 +117,15 @@ public class HangManGame {
                     System.out.println("You already guessed that letter!");
                 }
                 System.out.println("Your wrong guesses: " + player.getWrongGuesses());
-                System.out.println("\n");
+                System.out.println("Lives remaining: " + player.getLives());
+                System.out.println();
             }
 
             if (isWordSolved(wordList, guessedLetters)) {
                 System.out.println("YOU WON!");
             } else {
-                System.out.println("\nGAME OVER! The word was: " + wordList);
-                System.out.println("\n");
+                System.out.println("\nGAME OVER! The man has been hanged...\nThe word was: " + wordList);
+                System.out.println();
             }
 
             System.out.println("You guessed wrong [" + player.getWrongGuesses().size() + "] times!");
