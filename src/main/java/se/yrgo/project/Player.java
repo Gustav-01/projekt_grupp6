@@ -23,8 +23,8 @@ public class Player {
      * Creates a new player with a given name and number of lives.
      *
      * @param name  the name of the player, cannot be null
-     * @param lives starting number of lives (must be > 0)
-     * @throws IllegalArgumentException if name is null or lives <= 0
+     * @param lives starting number of lives (must be greater than 0)
+     * @throws IllegalArgumentException if name is null or lives is 0 or less than 0.
      */
     public Player(String name, int lives) {
         if (name == null || name.trim().isEmpty()) {
@@ -122,4 +122,5 @@ public class Player {
     public boolean isGameOver() {
         return lives == 0;
     }
+
 }
