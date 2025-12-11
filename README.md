@@ -1,15 +1,16 @@
-# HangMan Game
+Welcome to the Hangman Game!
 
-Welcome to the HangMan Game!
+How to Run the Game:
 
-## How to run
- Clone the repository
- Start the game by running: script.sh
+1. Clone this repository to your local machine.
+2. Make sure you have **Maven** installed and available in your Bash environment.
+3. Start the game by running: script.sh
 
-## End the game by pressing '0' at any time. 
+Logic:
+1. To start a new game, enter your name.
+2. To end the game at any time, press 0.
 
-
-Rules: 
+Rules:
  - Guess only one letter at a time, the program will tell you if it is correct or not.
  - Only letters from the english alphabet is acceptable.
  - For every guess your total guesses will increase by one, less is better!
